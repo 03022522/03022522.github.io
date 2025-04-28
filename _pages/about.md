@@ -6,44 +6,349 @@ redirect_from:
   - /about/
   - /about.html
 ---
+<!DOCTYPE html>
+<html>
+<head>
+    <title>我的像素小窝</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="pixel-frame">
+        <h1>我的像素日记</h1>
+        <div class="pixel-box">
+            <p>今天打败了最终BOSS！🎮</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>my-pixel-site/
+├── index.html       # 主页面
+├── style.css        # 样式文件
+├── script.js        # JavaScript文件
+├── assets/          # 资源文件夹
+│   ├── images/      # 存放图片
+│   ├── fonts/       # 存放像素字体
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的像素小窝</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="pixel-frame">
+        <!-- 导航栏 -->
+        <nav class="pixel-nav">
+            <button class="pixel-btn active" data-page="home">🏠 主页</button>
+            <button class="pixel-btn" data-page="photos">📷 照片墙</button>
+            <button class="pixel-btn" data-page="notes">📝 随笔</button>
+            <button class="pixel-btn" data-page="diary">📅 日记</button>
+            <button class="pixel-btn" data-page="todo">✅ 待办</button>
+        </nav>
+        
+        <!-- 主内容区 -->
+        <main class="pixel-content">
+            <!-- 默认显示主页 -->
+            <section id="home-page" class="page active">
+                <h1 class="pixel-title">欢迎来到我的像素小窝</h1>
+                <div class="pixel-avatar">(≧∇≦)ﾉ</div>
+                <p class="pixel-text">这里存放着我喜欢的一切...</p>
+            </section>
+            
+            <!-- 照片墙页面 -->
+            <section id="photos-page" class="page">
+                <h2 class="pixel-subtitle">我的照片墙</h2>
+                <div class="photo-grid"></div>
+            </section>
+            
+            <!-- 其他页面... -->
+        </main>
+        
+        <!-- 页脚 -->
+        <footer class="pixel-footer">
+            <div class="pixel-scroll">❤️ 制作于2023 ❤️</div>
+        </footer>
+    </div>
+    
+    <!-- 浮动像素元素 -->
+    <div class="pixel-floating">★</div>
+    <div class="pixel-floating">♥</div>
+    
+    <script src="script.js"></script>
+</body>
+</html>/* 基础样式 */
+* {
+    box-sizing: border-box;
+    image-rendering: pixelated;
+}
 
-This is the front page of a website that is powered by the [Academic Pages template](https://github.com/academicpages/academicpages.github.io) and hosted on GitHub pages. [GitHub pages](https://pages.github.com) is a free service in which websites are built and hosted from code and data stored in a GitHub repository, automatically updating when a new commit is made to the repository. This template was forked from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/) created by Michael Rose, and then extended to support the kinds of content that academics have: publications, talks, teaching, a portfolio, blog posts, and a dynamically-generated CV. You can fork [this template](https://github.com/academicpages/academicpages.github.io) right now, modify the configuration and markdown files, add your own PDFs and other content, and have your own site for free, with no ads!
+body {
+    background-color: #e0f8f8;
+    font-family: 'Press Start 2P', cursive;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    overflow-x: hidden;
+}
 
-A data-driven personal website
-======
-Like many other Jekyll-based GitHub Pages templates, Academic Pages makes you separate the website's content from its form. The content & metadata of your website are in structured markdown files, while various other files constitute the theme, specifying how to transform that content & metadata into HTML pages. You keep these various markdown (.md), YAML (.yml), HTML, and CSS files in a public GitHub repository. Each time you commit and push an update to the repository, the [GitHub pages](https://pages.github.com/) service creates static HTML pages based on these files, which are hosted on GitHub's servers free of charge.
+/* 像素框架 */
+.pixel-frame {
+    max-width: 900px;
+    margin: 0 auto;
+    border: 4px solid #000;
+    background-color: #9cbd8f;
+    padding: 20px;
+    box-shadow: 8px 8px 0 #000;
+    position: relative;
+}
 
-Many of the features of dynamic content management systems (like Wordpress) can be achieved in this fashion, using a fraction of the computational resources and with far less vulnerability to hacking and DDoSing. You can also modify the theme to your heart's content without touching the content of your site. If you get to a point where you've broken something in Jekyll/HTML/CSS beyond repair, your markdown files describing your talks, publications, etc. are safe. You can rollback the changes or even delete the repository and start over - just be sure to save the markdown files! Finally, you can also write scripts that process the structured data on the site, such as [this one](https://github.com/academicpages/academicpages.github.io/blob/master/talkmap.ipynb) that analyzes metadata in pages about talks to display [a map of every location you've given a talk](https://academicpages.github.io/talkmap.html).
+/* 导航栏 */
+.pixel-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #000;
+    padding-bottom: 15px;
+}
 
-Getting started
-======
-1. Register a GitHub account if you don't have one and confirm your e-mail (required!)
-1. Fork [this template](https://github.com/academicpages/academicpages.github.io) by clicking the "Use this template" button in the top right. 
-1. Go to the repository's settings (rightmost item in the tabs that start with "Code", should be below "Unwatch"). Rename the repository "[your GitHub username].github.io", which will also be your website's URL.
-1. Set site-wide configuration and create content & metadata (see below -- also see [this set of diffs](http://archive.is/3TPas) showing what files were changed to set up [an example site](https://getorg-testacct.github.io) for a user with the username "getorg-testacct")
-1. Upload any files (like PDFs, .zip files, etc.) to the files/ directory. They will appear at https://[your GitHub username].github.io/files/example.pdf.  
-1. Check status by going to the repository settings, in the "GitHub pages" section
+/* 像素按钮 */
+.pixel-btn {
+    background: #ff6b6b;
+    border: 3px solid #000;
+    padding: 8px 16px;
+    font-family: inherit;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.2s;
+}
 
-Site-wide configuration
-------
-The main configuration file for the site is in the base directory in [_config.yml](https://github.com/academicpages/academicpages.github.io/blob/master/_config.yml), which defines the content in the sidebars and other site-wide features. You will need to replace the default variables with ones about yourself and your site's github repository. The configuration file for the top menu is in [_data/navigation.yml](https://github.com/academicpages/academicpages.github.io/blob/master/_data/navigation.yml). For example, if you don't have a portfolio or blog posts, you can remove those items from that navigation.yml file to remove them from the header. 
+.pixel-btn:hover {
+    background: #ff8e8e;
+    transform: translate(2px, 2px);
+}
 
-Create content & metadata
-------
-For site content, there is one markdown file for each type of content, which are stored in directories like _publications, _talks, _posts, _teaching, or _pages. For example, each talk is a markdown file in the [_talks directory](https://github.com/academicpages/academicpages.github.io/tree/master/_talks). At the top of each markdown file is structured data in YAML about the talk, which the theme will parse to do lots of cool stuff. The same structured data about a talk is used to generate the list of talks on the [Talks page](https://academicpages.github.io/talks), each [individual page](https://academicpages.github.io/talks/2012-03-01-talk-1) for specific talks, the talks section for the [CV page](https://academicpages.github.io/cv), and the [map of places you've given a talk](https://academicpages.github.io/talkmap.html) (if you run this [python file](https://github.com/academicpages/academicpages.github.io/blob/master/talkmap.py) or [Jupyter notebook](https://github.com/academicpages/academicpages.github.io/blob/master/talkmap.ipynb), which creates the HTML for the map based on the contents of the _talks directory).
+.pixel-btn.active {
+    background: #4d96ff;
+    color: white;
+}
 
-**Markdown generator**
+/* 页面内容 */
+.page {
+    display: none;
+    min-height: 400px;
+}
 
-The repository includes [a set of Jupyter notebooks](https://github.com/academicpages/academicpages.github.io/tree/master/markdown_generator
-) that converts a CSV containing structured data about talks or presentations into individual markdown files that will be properly formatted for the Academic Pages template. The sample CSVs in that directory are the ones I used to create my own personal website at stuartgeiger.com. My usual workflow is that I keep a spreadsheet of my publications and talks, then run the code in these notebooks to generate the markdown files, then commit and push them to the GitHub repository.
+.page.active {
+    display: block;
+}
 
-How to edit your site's GitHub repository
-------
-Many people use a git client to create files on their local computer and then push them to GitHub's servers. If you are not familiar with git, you can directly edit these configuration and markdown files directly in the github.com interface. Navigate to a file (like [this one](https://github.com/academicpages/academicpages.github.io/blob/master/_talks/2012-03-01-talk-1.md) and click the pencil icon in the top right of the content preview (to the right of the "Raw | Blame | History" buttons). You can delete a file by clicking the trashcan icon to the right of the pencil icon. You can also create new files or upload files by navigating to a directory and clicking the "Create new file" or "Upload files" buttons. 
+/* 照片墙网格 */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+}
 
-Example: editing a markdown file for a talk
-![Editing a markdown file for a talk](/images/editing-talk.png)
+.photo-item {
+    width: 100%;
+    aspect-ratio: 1;
+    background-color: #fff;
+    border: 3px solid #000;
+    overflow: hidden;
+}
 
-For more info
-------
-More info about configuring Academic Pages can be found in [the guide](https://academicpages.github.io/markdown/), the [growing wiki](https://github.com/academicpages/academicpages.github.io/wiki), and you can always [ask a question on GitHub](https://github.com/academicpages/academicpages.github.io/discussions). The [guides for the Minimal Mistakes theme](https://mmistakes.github.io/minimal-mistakes/docs/configuration/) (which this theme was forked from) might also be helpful.
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 浮动像素元素 */
+.pixel-floating {
+    position: fixed;
+    font-size: 24px;
+    animation: float 5s infinite ease-in-out;
+    z-index: -1;
+    opacity: 0.7;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+/* 响应式设计 */
+@media (max-width: 600px) {
+    .pixel-nav {
+        flex-direction: column;
+    }
+    
+    .pixel-btn {
+        width: 100%;
+    }
+}// 页面切换功能
+document.querySelectorAll('.pixel-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        // 移除所有按钮的active类
+        document.querySelectorAll('.pixel-btn').forEach(b => b.classList.remove('active'));
+        // 给当前按钮添加active类
+        btn.classList.add('active');
+        
+        // 隐藏所有页面
+        document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+        // 显示对应页面
+        const pageId = btn.getAttribute('data-page') + '-page';
+        document.getElementById(pageId).classList.add('active');
+    });
+});
+
+// 照片墙功能
+const photoGrid = document.querySelector('.photo-grid');
+const samplePhotos = [
+    'assets/images/photo1.jpg',
+    'assets/images/photo2.jpg',
+    // 添加更多照片路径
+];
+
+// 创建照片元素
+samplePhotos.forEach(photo => {
+    const photoItem = document.createElement('div');
+    photoItem.className = 'photo-item';
+    
+    const img = document.createElement('img');
+    img.src = photo;
+    img.alt = '我的照片';
+    
+    photoItem.appendChild(img);
+    photoGrid.appendChild(photoItem);
+});
+
+// 创建随机浮动像素元素
+function createFloatingPixel() {
+    const pixels = ['★', '♥', '♫', '☀', '☁', '♣', '♦'];
+    const pixel = document.createElement('div');
+    pixel.className = 'pixel-floating';
+    pixel.textContent = pixels[Math.floor(Math.random() * pixels.length)];
+    pixel.style.left = Math.random() * 100 + 'vw';
+    pixel.style.top = Math.random() * 100 + 'vh';
+    pixel.style.animationDuration = (3 + Math.random() * 7) + 's';
+    pixel.style.fontSize = (16 + Math.random() * 32) + 'px';
+    document.body.appendChild(pixel);
+}
+
+// 创建5个浮动元素
+for (let i = 0; i < 5; i++) {
+    createFloatingPixel();
+}<section id="todo-page" class="page">
+    <h2 class="pixel-subtitle">待办事项</h2>
+    <div class="todo-container">
+        <input type="text" id="new-todo" class="pixel-input" placeholder="添加新任务...">
+        <button id="add-todo" class="pixel-btn">添加</button>
+        <div class="todo-list"></div>
+    </div>
+</section>.todo-container {
+    margin-top: 20px;
+}
+
+.pixel-input {
+    border: 3px solid #000;
+    padding: 8px;
+    font-family: inherit;
+    margin-right: 10px;
+    width: 200px;
+}
+
+.todo-list {
+    margin-top: 20px;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    background: #fff;
+    padding: 10px;
+    border: 3px solid #000;
+}
+
+.todo-checkbox {
+    width: 20px;
+    height: 20px;
+    border: 3px solid #000;
+    margin-right: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.todo-checkbox.checked::after {
+    content: '✓';
+    position: absolute;
+    top: -5px;
+    left: 2px;
+}
+
+.todo-text {
+    flex-grow: 1;
+}
+
+.delete-todo {
+    background: #ff0000;
+    color: white;
+    border: none;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}// 待办事项功能
+const todoList = document.querySelector('.todo-list');
+const newTodoInput = document.getElementById('new-todo');
+const addTodoBtn = document.getElementById('add-todo');
+
+function addTodoItem(text) {
+    const todoItem = document.createElement('div');
+    todoItem.className = 'todo-item';
+    
+    const checkbox = document.createElement('div');
+    checkbox.className = 'todo-checkbox';
+    
+    const todoText = document.createElement('span');
+    todoText.className = 'todo-text';
+    todoText.textContent = text;
+    
+    const deleteBtn = document.createElement('button');
+    deleteBtn.className = 'delete-todo pixel-btn';
+    deleteBtn.textContent = 'X';
+    
+    checkbox.addEventListener('click', () => {
+        checkbox.classList.toggle('checked');
+        todoText.style.textDecoration = checkbox.classList.contains('checked') ? 'line-through' : 'none';
+    });
+    
+    deleteBtn.addEventListener('click', () => {
+        todoItem.remove();
+    });
+    
+    todoItem.appendChild(checkbox);
+    todoItem.appendChild(todoText);
+    todoItem.appendChild(deleteBtn);
+    todoList.appendChild(todoItem);
+}
+
+addTodoBtn.addEventListener('click', () => {
+    if (newTodoInput.value.trim() !== '') {
+        addTodoItem(newTodoInput.value.trim());
+        newTodoInput.value = '';
+    }
+});
+
+newTodoInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter' && newTodoInput.value.trim() !== '') {
+        addTodoItem(newTodoInput.value.trim());
+        newTodoInput.value = '';
+    }
+});
